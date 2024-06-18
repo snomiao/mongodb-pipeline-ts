@@ -18,15 +18,20 @@
     "release": "bunx standard-version && git push --follow-tags && npm publish",
     "test": "bun test"
   },
+  "dependencies": {
+    "enhanced-ms": "^3.0.0",
+    "rambda": "^9.2.0",
+    "react-hook-form": "^7.51.5",
+    "ts-toolbelt": "^9.6.0"
+  },
   "devDependencies": {
     "@types/bun": "^1.1.4",
     "@types/jest": "^29.5.12",
+    "mongodb": "^6.7.0",
+    "mongoose": "^8.4.3",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "react-hook-form": "^7.51.5"
   }
 }
