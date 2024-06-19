@@ -4,6 +4,7 @@ type $before = { $lt: Date };
 type $after = { $gt: Date };
 type $stale = { $not: { $gt: Date } };
 type $fresh = { $gte: Date };
+
 export function $stale(at: Date): $stale;
 export function $stale(interval: number): $stale;
 /**
