@@ -19,7 +19,11 @@
     "test": "bun test"
   },
   "dependencies": {
+    "@snomiao/die": "^1.0.7",
+    "@types/lodash-es": "^4.17.12",
     "enhanced-ms": "^3.0.0",
+    "lodash-es": "^4.17.21",
+    "peek-log": "^0.0.4",
     "rambda": "^9.2.0",
     "react-hook-form": "^7.51.5",
     "ts-toolbelt": "^9.6.0"

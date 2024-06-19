@@ -1,6 +1,6 @@
 import { $elemMatch } from "./$elemMatch";
-import { $filaten } from "./$filaten";
+import { $flatten } from "./$flatten";
 import { $after, $before, $fresh, $stale } from "./$mtime";
 import { $pipeline } from "./$pipeline";
-export { $after, $before, $elemMatch, $filaten, $fresh, $pipeline, $stale };
+export { $after, $before, $elemMatch, $flatten as $flatten, $fresh, $pipeline, $stale };
 
