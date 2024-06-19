@@ -7,7 +7,7 @@ import type { Filter } from "mongodb";
  *
  * @example
  * ```ts
- * $filaten({
+ * $flatten({
  *   crPulls: {
  *     data: $elemMatch({
  *       // type: "pyproject",

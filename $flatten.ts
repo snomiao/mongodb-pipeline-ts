@@ -1,5 +1,6 @@
 import { type Document, type Filter } from "mongodb";
 import { fromPairs, toPairs } from "rambda";
+import type { UnwrapArrayDeep } from "./UnwrapArrayDeep";
 /**
  * This function flattens the filter object, used for mongodb partial queries.
  * otherwise, mongodb will match the nested object as a whole.
@@ -17,7 +18,9 @@ import { fromPairs, toPairs } from "rambda";
  * // but not { a: { b: 1, c: 2 } } or { a: { b: 2 } }
  * ```
  */
-export function $flatten<TSchema extends Document>(filter: Filter<TSchema>): Filter<TSchema> {
+export function $flatten<TSchema extends Document>(
+  filter: UnwrapArrayDeep<Filter<TSchema>>
+): Filter<TSchema> {
   const v = filter as any;
   if (typeof v !== "object" || !(v instanceof Object)) return v;
   if (v instanceof Date) return v;
@@ -26,9 +29,12 @@ export function $flatten<TSchema extends Document>(filter: Filter<TSchema>): Fil
     toPairs(v).flatMap(([k, v]) => {
       if (typeof v !== "object" || !(v instanceof Object)) return [[k, v]];
       if (k.startsWith("$")) return [[k, $flatten(v)]];
-      if (Object.keys(v).some((kk) => kk.startsWith("$"))) return [[k, $flatten(v)]];
+      if (Object.keys(v).some((kk) => kk.startsWith("$")))
+        return [[k, $flatten(v)]];
       // TODO: optimize this
-      return toPairs($flatten(fromPairs(toPairs(v).map(([kk, vv]) => [`${k}.${kk}`, vv]))));
-    }, v) as any,
+      return toPairs(
+        $flatten(fromPairs(toPairs(v).map(([kk, vv]) => [`${k}.${kk}`, vv])))
+      );
+    }, v) as any
   );
 }
