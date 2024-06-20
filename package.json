@@ -1,6 +1,6 @@
 {
   "name": "mongodb-pipeline-ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "snomiao <snomiao@gmail.com>",
   "type": "module",
   "exports": {
@@ -8,6 +8,7 @@
     "types": "./index.ts"
   },
   "module": "index.ts",
+  "types": "./index.ts",
   "files": [
     "*.ts",
     "dist"
