@@ -29,7 +29,7 @@
     "ts-toolbelt": "^9.6.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.4",
+    "@types/bun": "^1.1.5",
     "@types/jest": "^29.5.12",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.3",
