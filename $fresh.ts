@@ -27,7 +27,6 @@ export const $fresh: {
 export const $before: {
   (at: Date): { $lt: Date };
   (interval: number): { $lt: Date };
-  /** match data duration */
   (duration: string): { $lt: Date };
   (x: Date | string | number): { $lt: Date };
 } = (x) => {
@@ -36,6 +35,7 @@ export const $before: {
   return { $lt: x };
 };
 
+/** match data after */
 export const $after: {
   (at: Date): { $gt: Date };
   (interval: number): { $gt: Date };
